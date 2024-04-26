@@ -1,0 +1,33 @@
+query RunInput {
+  cart {
+    lines {
+      quantity     
+      merchandise {
+        __typename                
+        ...on ProductVariant {
+            id   
+            product   
+            {
+              id
+              productType              
+              metafield(key: "bundle_product", namespace: "my_fields") {
+                value                
+              }            
+              
+            }    
+        }
+      }
+    }
+    buyerIdentity {
+      email
+    }   
+    deliveryGroups{
+      id
+      deliveryAddress{
+        city
+        countryCode
+      }
+    }     
+  }  
+ 
+}
